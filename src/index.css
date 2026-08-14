@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #B8975F 0%, #D4AF7A 100%);
+}
+
+.gold-gradient-hover {
+  transition: all 0.3s ease;
+}
+
+.gold-gradient-hover:hover {
+  background: linear-gradient(135deg, #a3824c 0%, #c39d67 100%);
+  box-shadow: 0 10px 25px -5px rgba(184, 151, 95, 0.35);
+}
+
+.atmospheric-shadow {
+  box-shadow: 0 20px 40px -10px rgba(127, 118, 104, 0.12);
+}
+
+.glass-header {
+  background-color: rgba(251, 249, 245, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+

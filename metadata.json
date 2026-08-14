@@ -1,0 +1,6 @@
+{
+  "name": "Agalma Vitalidad en Movimiento",
+  "description": "Clínica Integrativa de Kinesiología, Osteopatía y Medicina Tradicional China. Excelencia postural y restauración vital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
