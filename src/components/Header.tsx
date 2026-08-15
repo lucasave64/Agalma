@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { AgalmaLogo } from './AgalmaLogo';
 import { Menu, X, Calendar, Phone } from 'lucide-react';
-import { CLINIC_LOCATION } from '../data/content';
+import { CLINIC_LOCATION, BOOKING_URL } from '../data/content';
 
 interface HeaderProps {
-  onOpenBooking: (presetSectorId?: string) => void;
   onOpenPhilosophy: () => void;
   onNavigate: (sectionId: string) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenPhilosophy, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenPhilosophy, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -74,23 +73,27 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenPhilosophy,
 
         {/* Action CTA */}
         <div className="hidden md:flex items-center space-x-4">
-          <button
-            onClick={() => onOpenBooking()}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="gold-gradient gold-gradient-hover text-white text-xs font-semibold uppercase tracking-wider px-6 py-2.5 rounded-full shadow-sm cursor-pointer inline-flex items-center gap-2"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span>Agendar Cita</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center space-x-2">
-          <button
-            onClick={() => onOpenBooking()}
-            className="gold-gradient text-white text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gold-gradient text-white text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center justify-center"
           >
             Cita
-          </button>
+          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-[#1b1c1a] focus:outline-none"
@@ -134,16 +137,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenPhilosophy,
             </button>
 
             <div className="pt-2 flex flex-col space-y-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenBooking();
-                }}
-                className="w-full gold-gradient text-white text-xs font-semibold uppercase tracking-wider py-3 rounded-full text-center flex items-center justify-center gap-2"
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full gold-gradient text-white text-xs font-semibold uppercase tracking-wider py-3 rounded-full text-center flex items-center justify-center gap-2 shadow-sm"
               >
                 <Calendar className="w-4 h-4" />
-                Agendar Cita Médica
-              </button>
+                <span>Agendar Cita Médica</span>
+              </a>
 
               <a
                 href={`https://wa.me/${CLINIC_LOCATION.phoneRaw}`}

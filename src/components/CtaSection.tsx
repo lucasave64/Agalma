@@ -1,13 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Phone, ShieldCheck, Clock, CheckCircle2 } from 'lucide-react';
-import { CLINIC_LOCATION } from '../data/content';
+import { CLINIC_LOCATION, BOOKING_URL } from '../data/content';
 
-interface CtaSectionProps {
-  onOpenBooking: () => void;
-}
-
-export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
+export const CtaSection: React.FC = () => {
   return (
     <section id="contacto" className="py-20 sm:py-24 bg-[#fbf9f5] relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -41,13 +37,15 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 mb-10">
-            <button
-              onClick={onOpenBooking}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto gold-gradient gold-gradient-hover text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-8 py-4 rounded-full shadow-xl cursor-pointer inline-flex items-center justify-center gap-2.5"
             >
               <Calendar className="w-4 h-4" />
               <span>Agendar Cita Médica</span>
-            </button>
+            </a>
 
             <a
               href={`https://wa.me/${CLINIC_LOCATION.phoneRaw}`}

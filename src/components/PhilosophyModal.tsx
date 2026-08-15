@@ -1,17 +1,15 @@
 import React from 'react';
-import { X, Sparkles, Heart, Compass, ShieldCheck } from 'lucide-react';
-import { PHILOSOPHY_CONTENT } from '../data/content';
+import { X, Sparkles, ShieldCheck } from 'lucide-react';
+import { PHILOSOPHY_CONTENT, BOOKING_URL } from '../data/content';
 
 interface PhilosophyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenBooking: () => void;
 }
 
 export const PhilosophyModal: React.FC<PhilosophyModalProps> = ({
   isOpen,
   onClose,
-  onOpenBooking,
 }) => {
   if (!isOpen) return null;
 
@@ -81,16 +79,16 @@ export const PhilosophyModal: React.FC<PhilosophyModalProps> = ({
 
           {/* Action Footer */}
           <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
-            <button
-              onClick={() => {
-                onClose();
-                onOpenBooking();
-              }}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
               className="w-full sm:w-auto flex-1 gold-gradient gold-gradient-hover text-white text-xs font-bold uppercase tracking-widest py-3.5 px-6 rounded-full shadow-md cursor-pointer flex items-center justify-center gap-2"
             >
               <ShieldCheck className="w-4 h-4" />
               <span>Experimenta la Experiencia Agalma</span>
-            </button>
+            </a>
 
             <button
               onClick={onClose}

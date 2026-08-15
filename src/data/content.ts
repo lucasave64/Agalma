@@ -1,5 +1,7 @@
 import { SpecialtySector, ServicePillar } from '../types';
 
+export const BOOKING_URL = 'https://link.zolutium.com/widget/booking/UZXoF56HHrhQkmAu43kr';
+
 export const CLINIC_LOCATION = {
   address: 'Avenida Doce de Octubre 1-75',
   city: 'Cuenca, Ecuador',

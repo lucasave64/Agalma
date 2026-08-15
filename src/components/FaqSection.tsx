@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HelpCircle, ChevronDown, Calendar } from 'lucide-react';
+import { BOOKING_URL } from '../data/content';
 
 interface FaqItem {
   question: string;
   answer: string;
 }
 
-interface FaqSectionProps {
-  onOpenBooking: () => void;
-}
-
-export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
+export const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs: FaqItem[] = [
@@ -123,13 +120,15 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
               Agendá tu primera cita o consultanos directamente sin compromiso.
             </p>
           </div>
-          <button
-            onClick={onOpenBooking}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="gold-gradient gold-gradient-hover text-white text-xs font-semibold uppercase tracking-wider px-6 py-3 rounded-full shadow-md cursor-pointer shrink-0 inline-flex items-center gap-2"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span>Agendar Cita</span>
-          </button>
+          </a>
         </div>
 
       </div>

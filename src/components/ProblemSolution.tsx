@@ -1,12 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Activity, AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { BOOKING_URL } from '../data/content';
 
-interface ProblemSolutionProps {
-  onOpenBooking: () => void;
-}
-
-export const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenBooking }) => {
+export const ProblemSolution: React.FC = () => {
   return (
     <section className="py-20 sm:py-24 bg-[#f4efe6] relative overflow-hidden">
       {/* Decorative ambient background glow */}
@@ -115,13 +112,15 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onOpenBooking 
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
-              <button
-                onClick={onOpenBooking}
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full gold-gradient gold-gradient-hover text-white text-xs font-semibold uppercase tracking-wider py-3.5 rounded-full shadow-lg cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Agendar mi Evaluación Integral</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </motion.div>
 

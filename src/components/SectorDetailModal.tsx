@@ -1,17 +1,16 @@
 import React from 'react';
 import { SpecialtySector } from '../types';
 import { X, CheckCircle2, AlertCircle, Sparkles, Calendar } from 'lucide-react';
+import { BOOKING_URL } from '../data/content';
 
 interface SectorDetailModalProps {
   sector: SpecialtySector | null;
   onClose: () => void;
-  onBookSector: (sectorId: string) => void;
 }
 
 export const SectorDetailModal: React.FC<SectorDetailModalProps> = ({
   sector,
   onClose,
-  onBookSector,
 }) => {
   if (!sector) return null;
 
@@ -121,16 +120,15 @@ export const SectorDetailModal: React.FC<SectorDetailModalProps> = ({
 
           {/* Footer Action */}
           <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
-            <button
-              onClick={() => {
-                onClose();
-                onBookSector(sector.id);
-              }}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto flex-1 gold-gradient gold-gradient-hover text-white text-xs font-bold uppercase tracking-widest py-3.5 px-6 rounded-full shadow-md cursor-pointer flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Agendar Cita para {sector.title}</span>
-            </button>
+            </a>
 
             <button
               onClick={onClose}

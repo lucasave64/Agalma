@@ -1,12 +1,11 @@
 import React from 'react';
 import { AgalmaLogo } from './AgalmaLogo';
 import { Share2, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
-import { CLINIC_LOCATION } from '../data/content';
+import { CLINIC_LOCATION, BOOKING_URL } from '../data/content';
 
 interface FooterProps {
   onOpenPrivacy: () => void;
   onOpenTerms: () => void;
-  onOpenBooking: () => void;
 }
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
@@ -27,7 +26,7 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onOpenBooking }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
   return (
     <footer id="contacto" className="bg-[#fbf9f5] border-t border-[#e4e2de] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -151,12 +150,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onOp
                   </button>
                 </li>
                 <li className="pt-1">
-                  <button
-                    onClick={onOpenBooking}
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-[#b8975f] font-semibold hover:underline text-left cursor-pointer inline-flex items-center gap-1"
                   >
                     <span>Agendar Cita en Línea</span>
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>

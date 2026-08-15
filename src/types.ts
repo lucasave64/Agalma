@@ -23,14 +23,3 @@ export interface ServicePillar {
   sessionDuration: string;
 }
 
-export interface AppointmentBooking {
-  sectorId?: string;
-  pillarId?: string;
-  date: string;
-  time: string;
-  patientName: string;
-  patientPhone: string;
-  patientEmail: string;
-  notes: string;
-  bookingRef?: string;
-}
